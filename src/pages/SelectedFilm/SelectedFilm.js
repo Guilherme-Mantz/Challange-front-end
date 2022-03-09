@@ -32,7 +32,7 @@ export default function SelectedFilm(){
         .then((response) => {
             setRecommendation(response.data)
         })
-    }, [])
+    }, [id])
 
     return(
         <>
@@ -43,7 +43,7 @@ export default function SelectedFilm(){
                     <div className="col-lg-4 col-md-3 text-center"><img src={data? 'https://image.tmdb.org/t/p/w500'+data.poster_path:''} id="image-film" className="img-fluid" alt="" width="383" height="574" /></div>
                     <div className="col" id="text-film">
                         <h2>{ data? data.title : '' }</h2>
-                        <p>{ data ? data.release_date+' '+`(${data.original_language})` + ' • '+ data.genres.map(g => g.name) +' • '+ data.runtime : ''}</p>
+                        <p>{ data ? data.release_date+' '+`(${data.original_language})` + ' • '+ data.genres.map(g => g.name) +' • '+ data.runtime + ' min': ''}</p>
                         <h5>Sinopse</h5>
                         <p>{data? data.overview : ''}</p>
                     </div>
@@ -61,7 +61,7 @@ export default function SelectedFilm(){
         <div className="container mt-5">
             <h2 className="mb-3" id="title-list">Trailer</h2>
             <div className="row">
-            <iframe className="image-fluid" width="560" height="650" src={video? `https://www.youtube.com/embed/${video.results[0].key}`:''} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            <iframe className="image-fluid" width="560" height="650" src={video? `https://www.youtube.com/embed/${ video.results.length !== 0 ? video.results[0].key :'' }`:''} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>        
         </div>
 
