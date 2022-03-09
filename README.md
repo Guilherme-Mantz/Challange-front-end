@@ -8,8 +8,6 @@ Este projeto foi desenvolvido baseado na challage proposto pela empresa Promobit
 
 # 2) Como executar o projeto
 
--(Back-end)
-
 - Clone a pasta do projeto ou efetue o download em zip.
 - Instale as dependências do npm com `npm install`.
 - Abra o terminal e execute o comando `npm start` para iniciar o projeto.
